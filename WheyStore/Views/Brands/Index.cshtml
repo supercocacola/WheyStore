@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WheyStore.EF.Brand>
+
+@{
+    ViewBag.Title = "Quản lý hãng ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý hãng</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên
+        </th>
+        <th>
+            Ngày sửa
+        </th>
+        <th>
+            Người sửa
+        </th>
+        <th>
+            Ngày tạo
+        </th>
+        <th>
+            Người tạo
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @{
+                bool var;
+                var = (bool)item.Status;
+            }
+            @if (@var) { <p>Còn hoạt động</p> }
+            else { <p>Không còn hoạt động</p> }
+
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Thông tin", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

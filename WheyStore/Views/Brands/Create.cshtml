@@ -1,0 +1,67 @@
+﻿@model WheyStore.EF.Brand
+
+@{
+    ViewBag.Title = "Tạo mới";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Nhãn hiệu</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Name">Tên</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-length="The field Name must be a string with a maximum length of 50." data-val-length-max="50" data-val-required="The Name field is required." id="Name" name="Name" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="ModifiedDate">Ngày sửa</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-length="The field ModifiedDate must be a string with a maximum length of 50." data-val-length-max="50" id="ModifiedDate" name="ModifiedDate" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="ModifiedDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="ModifiedBy">Người sửa</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-length="The field ModifiedBy must be a string with a maximum length of 50." data-val-length-max="50" id="ModifiedBy" name="ModifiedBy" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="ModifiedBy" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CreatedDate">Ngày tạo</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-length="The field CreatedDate must be a string with a maximum length of 50." data-val-length-max="50" id="CreatedDate" name="CreatedDate" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="CreatedDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CreatedBy">Người tạo</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-length="The field CreatedBy must be a string with a maximum length of 50." data-val-length-max="50" id="CreatedBy" name="CreatedBy" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="CreatedBy" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
